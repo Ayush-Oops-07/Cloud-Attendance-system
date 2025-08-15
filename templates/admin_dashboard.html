@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h2>Welcome, {{ username }}</h2>
+     <div class="container">
+    <a href="{{ url_for('mark_attendance') }}">📋 Mark Attendance</a>
+    <a href="{{ url_for('view_attendance') }}">📊 View Attendance</a>
+    <a href="{{ url_for('download_select') }}">⬇ Download CSV</a>
+    <a href="{{ url_for('logout') }}">🚪 Logout</a></div>
+</body>
+</html>

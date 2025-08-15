@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Class to Download CSV</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h2>Select Class to Download Attendance CSV</h2>
+    <div class="container">
+        <form method="POST">
+            <label>Choose Class:</label>
+            <select name="class_id" required>
+                <option value="">-- Select Class --</option>
+                {% for c in classes %}
+                <option value="{{ c.id }}">{{ c.class_name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Download CSV</button>
+        </form>
+        <a href="{{ url_for('admin_dashboard') }}" class="btn" style="background: #999;">⬅ Back to Dashboard</a>
+    </div>
+</body>
+</html>

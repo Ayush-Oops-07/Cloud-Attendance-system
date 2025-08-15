@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<div class="container">
+    <!-- Flash Messages (use CSS classes instead of inline style) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-box">
+              {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+    <h2>Welcome, {{ username }}</h2>
+    <p><b>Assigned Classes:</b> {{ classes }}</p>
+
+    <a href="{{ url_for('mark_attendance') }}">📋 Mark Attendance</a>
+    <a href="{{ url_for('view_attendance') }}">📊 View Attendance</a>
+    <a href="{{ url_for('download_select') }}">⬇ Download CSV</a>
+    <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</div>
+</body>
+</html>

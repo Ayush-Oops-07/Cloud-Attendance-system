@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Attendance</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<div class="container wide">
+    <h2>View Attendance</h2>
+    <form method="GET">
+        <label>Choose Class:</label>
+        <select name="class_id" onchange="this.form.submit()">
+            <option value="">-- Select Class --</option>
+            {% for c in classes %}
+            <option value="{{ c.id }}" {% if selected_class_id == c.id|string %}selected{% endif %}>
+                {{ c.class_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    {% if records %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Class</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Marked By</th>
+        </tr>
+        {% for r in records %}
+        <tr>
+            <td>{{ r.name }}</td>
+            <td>{{ r.roll_no }}</td>
+            <td>{{ r.class_name }}</td>
+            <td>{{ r.date }}</td>
+            <td>{{ r.status }}</td>
+            <td>{{ r.marked_by }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('download_csv', class_id=selected_class_id) }}">⬇ Download CSV</a>
+    {% endif %}
+
+    <a href="{{ back_url }}" class="btn" style="background: #999;">⬅ Back to Dashboard</a>
+</div>
+</body>
+</html>

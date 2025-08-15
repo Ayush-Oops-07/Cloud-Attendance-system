@@ -1,0 +1,6 @@
+Flask
+mysql-connector-python 
+werkzeug 
+pandas
+Nginx
+Gunicorn

@@ -1,0 +1,150 @@
+/* ===== Reset some default styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    text-align: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Headings */
+h1, h2 {
+    color: #0a0909;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.918);
+}
+
+/* Container for forms and dashboards */
+.container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 30px 40px;
+    width: 100%;
+    max-width: 450px;
+    margin-bottom: 40px;
+}
+
+/* Buttons and links styled as buttons */
+.btn, button, a.button-link {
+    display: inline-block;
+    margin: 15px 10px 10px 10px;
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    box-shadow: 0 4px 15px rgba(101, 41, 255, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn:hover, button:hover, a.button-link:hover {
+    background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+    box-shadow: 0 6px 20px rgba(101, 41, 255, 0.6);
+    transform: scale(1.05);
+}
+
+/* Forms */
+form {
+    width: 100%;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1.5px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+/* Extra wide container for table pages */
+.container.wide {
+    max-width: 1000px;
+}
+th, td {
+    padding: 14px 20px;
+    text-align: center;
+    background: #fff;
+}
+
+th {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* Zebra striping for rows */
+tbody tr:nth-child(even) {
+    background: #f7f7f7;
+}
+
+/* Links */
+a {
+    color: #6a11cb;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+a:hover {
+    color: #2575fc;
+}
+
+/* Flash messages */
+.flash-box { margin: 10px 0 5px; }
+.flash { padding: 12px 14px; border-radius: 8px; margin-bottom: 10px; text-align: left; border: 1px solid transparent; }
+.flash.success { background: #e6ffed; color: #0f5132; border-color: #badbcc; }
+.flash.warning { background: #fff3cd; color: #664d03; border-color: #ffecb5; }
+.flash.danger  { background: #f8d7da; color: #842029; border-color: #f5c2c7; }
+.flash.info    { background: #cff4fc; color: #055160; border-color: #b6effb; }
+
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+    .container {
+        padding: 20px 25px;
+        max-width: 100%;
+    }
+    .btn, button, a.button-link {
+        font-size: 16px;
+        padding: 10px 22px;
+        margin: 12px 8px 8px 8px;
+    }
+}

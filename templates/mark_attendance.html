@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mark Attendance</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h2>Mark Attendance</h2>
+
+    <div class="container">
+        <!-- Flash Messages (use CSS classes instead of inline style) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-box">
+              {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Class Selection -->
+        <form method="GET">
+            <label>Choose Class:</label>
+            <select name="class_id" onchange="this.form.submit()">
+                <option value="">-- Select Class --</option>
+                {% for c in classes %}
+                <option value="{{ c.id }}" {% if selected_class_id == c.id|string %}selected{% endif %}>{{ c.class_name }}</option>
+                {% endfor %}
+            </select>
+        </form>
+
+        <!-- Student + Status Selection -->
+        {% if students %}
+        <form method="POST">
+            <input type="hidden" name="date" value="{{ today }}">
+            <label>Choose Student:</label>
+            <select name="student_id" required>
+                {% for s in students %}
+                <option value="{{ s.id }}">{{ s.name }} (Roll: {{ s.roll_no }})</option>
+                {% endfor %}
+            </select>
+            <select name="status">
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select>
+            <button type="submit">Mark</button>
+        </form>
+        {% endif %}
+
+        <!-- Role-based Back Button -->
+        {% if session.get('role') == 'admin' %}
+            <a href="{{ url_for('admin_dashboard') }}" class="btn" style="background: #999; margin-bottom: 20px;">⬅ Back to Admin Dashboard</a>
+        {% elif session.get('role') == 'teacher' %}
+            <a href="{{ url_for('teacher_dashboard') }}" class="btn" style="background: #999; margin-bottom: 20px;">⬅ Back to Teacher Dashboard</a>
+        {% endif %}
+    </div>
+</body>
+</html>
