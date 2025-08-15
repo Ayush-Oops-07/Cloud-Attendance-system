@@ -32,12 +32,12 @@ This project is built with **Flask** (Python), **MySQL**, and deployed on **AWS 
    ssh -i your-key.pem ubuntu@your-ec2-public-ip
 
 ## In Terminal
-sudo apt update && sudo apt upgrade -y
-sudo apt install python3 python3-pip python3-venv mysql-server nginx -y
+- sudo apt update && sudo apt upgrade -y
+- sudo apt install python3 python3-pip python3-venv mysql-server nginx -y
 
 ## Enable & start:
-sudo systemctl start attendance
-sudo systemctl enable attendance
+- sudo systemctl start attendance
+- sudo systemctl enable attendance
 
 ## 🏷 Author
 Ayush Kumar Sharma
